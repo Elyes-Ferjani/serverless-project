@@ -1,0 +1,7 @@
+.terraform
+.terraform.lock.hcl
+handler_getComments.zip
+handler_pollSQS.zip
+handler_putSQS.zip
+terraform.tfstate
+terraform.tfstate.backup
