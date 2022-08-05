@@ -1,0 +1,37 @@
+          const comment = document.querySelector('#comment')
+            const all = document.querySelector('#all_comments')
+            const url = `${ api_dns }`
+            function send_comment(){
+                fetch(`${ api_dns }`+'/comment',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    mode: 'cors',
+                    body: JSON.stringify({comment: comment.value})
+                }).then(res=>{
+                        return res.json()
+                    })
+                    .then(data=>{
+                        console.log(data)
+                    })
+            }
+            function get_all(){
+                all.innerText = ''
+                fetch(`${ api_dns }`+'/all_comments',{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    mode: 'cors',
+                }).then(res=>{
+                        return res.json()
+                    })
+                    .then(data=>{
+                        data.map(el=>{
+                            let e = document.createElement('p')
+                            all.append(el.comment, e)
+                        })
+                    })
+            }
+            setInterval(()=>{get_all()},1000)
