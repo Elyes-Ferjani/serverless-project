@@ -14,7 +14,7 @@ resource "aws_lambda_function" "put_sqs" {
   source_code_hash = "${data.archive_file.zipit3.output_base64sha256}"
 
   runtime = "python3.8"
- 
+  timeout = 60
   depends_on = [
     aws_iam_role_policy_attachment.put_sqs_lambda_logs,
     aws_cloudwatch_log_group.put_sqs_lambda_log_group,

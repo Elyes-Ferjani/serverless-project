@@ -9,7 +9,7 @@ def lambda_handler(event, context):
   try: 
     table = dynamodb.Table('comments')
     response = sqs_client.receive_message(
-        QueueUrl="https://sqs.us-east-1.amazonaws.com/acc_id/comments",
+        QueueUrl="https://sqs.us-east-1.amazonaws.com/877362562678/comments",
         MaxNumberOfMessages=1,
         WaitTimeSeconds=10,
     )
@@ -26,7 +26,7 @@ def lambda_handler(event, context):
             }
             )
         delete_res = sqs_client.delete_message(
-        QueueUrl="https://sqs.us-east-1.amazonaws.com/acc_id/comments",
+        QueueUrl="https://sqs.us-east-1.amazonaws.com/877362562678/comments",
         ReceiptHandle=message['ReceiptHandle'],
         )
   except Exception as e:
