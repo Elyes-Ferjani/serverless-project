@@ -1,0 +1,15 @@
+{
+    "Id": "Policy1657383138219",
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Stmt1657383137032",
+        "Action": [
+          "s3:GetObject"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::blog-website-project.aws/*",
+        "Principal": "*"
+      }
+    ]
+  }
